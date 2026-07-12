@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operandi — Number Puzzle</title>
+<meta name="description" content="Operandi is a cozy math puzzle game: combine numbers with +, −, × and ÷ to hit the target. Coming soon to Google Play and the App Store.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(120% 90% at 50% 0%, #16294a 0%, #0d1b2e 55%, #081226 100%);
+    color: #e8eefb; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; overflow-x: hidden;
+  }
+  main { flex: 1; display: flex; flex-direction: column; align-items: center;
+         justify-content: center; padding: 48px 24px; position: relative; }
+  .glyph { position: absolute; font-weight: 800; opacity: .85;
+           animation: float 4s ease-in-out infinite alternate; user-select: none; }
+  @keyframes float { from { transform: translateY(-6px) rotate(-8deg); }
+                     to   { transform: translateY(6px) rotate(6deg); } }
+  h1 { font-size: clamp(44px, 9vw, 72px); letter-spacing: 2px; color: #fff;
+       text-shadow: 0 4px 0 #97a6c4, 0 12px 28px rgba(0,0,0,.6); }
+  .tagline { margin-top: 10px; font-size: clamp(13px, 2.6vw, 17px); font-weight: 800;
+             letter-spacing: 7px; color: #ffc24a;
+             text-shadow: 0 2px 0 #8a5f13, 0 6px 14px rgba(0,0,0,.6); }
+  .pitch { margin-top: 26px; max-width: 460px; line-height: 1.65; color: #b9c7e2;
+           font-size: 16px; }
+  .ops { margin-top: 30px; display: flex; gap: 14px; justify-content: center; }
+  .op { width: 52px; height: 52px; border-radius: 15px; display: flex;
+        align-items: center; justify-content: center; font-size: 27px;
+        font-weight: 800; color: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.45);
+        border-bottom: 5px solid rgba(0,0,0,.35); }
+  .soon { margin-top: 38px; font-size: 13px; font-weight: 800; letter-spacing: 3px;
+          color: #8fa6c9; }
+  .stores { margin-top: 14px; display: flex; gap: 12px; justify-content: center;
+            flex-wrap: wrap; }
+  .store { padding: 12px 22px; border-radius: 14px; border: 1.5px solid #31456b;
+           color: #b9c7e2; font-size: 14px; font-weight: 700; background: #12203a; }
+  footer { padding: 26px 16px 34px; font-size: 13px; color: #8fa6c9; }
+  footer a { color: #b9c7e2; text-decoration: underline; text-underline-offset: 3px; }
+  footer a:hover { color: #fff; }
+</style>
+</head>
+<body>
+<main>
+  <span class="glyph" style="left:8%;  top:22%; color:#ffc24a; font-size:30px;">+</span>
+  <span class="glyph" style="left:14%; bottom:24%; color:#e4635f; font-size:24px; animation-delay:-1.2s;">−</span>
+  <span class="glyph" style="right:10%; top:26%; color:#58a8e8; font-size:26px; animation-delay:-2.1s;">×</span>
+  <span class="glyph" style="right:15%; bottom:22%; color:#3fbfa8; font-size:28px; animation-delay:-.6s;">÷</span>
+
+  <h1>OPERANDI</h1>
+  <div class="tagline">NUMBER PUZZLE</div>
+
+  <p class="pitch">Combine numbers with the four operators to hit the target.
+  One hundred handcrafted levels, a fresh daily puzzle, and just the right
+  amount of brain-burn.</p>
+
+  <div class="ops" aria-hidden="true">
+    <div class="op" style="background:linear-gradient(#58b368,#3f9750);">+</div>
+    <div class="op" style="background:linear-gradient(#e4635f,#c04440);">−</div>
+    <div class="op" style="background:linear-gradient(#58a8e8,#3a7fc0);">×</div>
+    <div class="op" style="background:linear-gradient(#b07be0,#8c56bd);">÷</div>
+  </div>
+
+  <div class="soon">COMING SOON</div>
+  <div class="stores">
+    <span class="store">Google Play</span>
+    <span class="store">App Store</span>
+  </div>
+</main>
+
+<footer>
+  <a href="privacy-policy.html">Privacy policy</a> ·
+  <a href="terms.html">Terms of service</a> ·
+  <a href="mailto:zipangulu.dev@gmail.com">Contact</a>
+</footer>
+</body>
+</html>
