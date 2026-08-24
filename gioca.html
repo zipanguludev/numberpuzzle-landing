@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Operandi — Number Puzzle</title>
-<meta name="description" content="Operandi is a cozy math puzzle game: combine numbers with +, −, × and ÷ to hit the target. Free on Google Play and the App Store.">
+<title>Operandi — Gioca</title>
+<meta name="description" content="Play Operandi, the cozy math puzzle game: combine numbers with +, −, × and ÷ to hit the target. Free on Google Play and the App Store.">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -27,23 +27,32 @@
              text-shadow: 0 2px 0 #8a5f13, 0 6px 14px rgba(0,0,0,.6); }
   .pitch { margin-top: 26px; max-width: 460px; line-height: 1.65; color: #b9c7e2;
            font-size: 16px; }
-  .ops { margin-top: 30px; display: flex; gap: 14px; justify-content: center; }
-  .op { width: 52px; height: 52px; border-radius: 15px; display: flex;
-        align-items: center; justify-content: center; font-size: 27px;
-        font-weight: 800; color: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.45);
-        border-bottom: 5px solid rgba(0,0,0,.35); }
-  .soon { margin-top: 38px; font-size: 13px; font-weight: 800; letter-spacing: 3px;
-          color: #8fa6c9; }
-  .stores { margin-top: 14px; display: flex; gap: 12px; justify-content: center;
+  .stores { margin-top: 34px; display: flex; gap: 12px; justify-content: center;
             flex-wrap: wrap; }
-  .store { padding: 12px 22px; border-radius: 14px; border: 1.5px solid #31456b;
-           color: #b9c7e2; font-size: 14px; font-weight: 700; background: #12203a;
-           text-decoration: none; }
-  .store:hover { color: #fff; border-color: #4a6390; }
+  .store { padding: 14px 26px; border-radius: 14px; font-size: 15px;
+           font-weight: 800; text-decoration: none; color: #fff;
+           box-shadow: 0 6px 16px rgba(0,0,0,.45);
+           border-bottom: 5px solid rgba(0,0,0,.35); }
+  .store.play { background: linear-gradient(#58b368, #3f9750); }
+  .store.apple { background: linear-gradient(#58a8e8, #3a7fc0); }
   footer { padding: 26px 16px 34px; font-size: 13px; color: #8fa6c9; }
   footer a { color: #b9c7e2; text-decoration: underline; text-underline-offset: 3px; }
   footer a:hover { color: #fff; }
 </style>
+<script>
+  // Landed from a shared daily result: hand the phone straight to its
+  // store. Desktops and unknown platforms stay on the page with both
+  // badges.
+  const PLAY_URL =
+    'https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle';
+  const APP_STORE_URL = 'https://apps.apple.com/app/id6792473833';
+  const ua = navigator.userAgent;
+  if (/android/i.test(ua)) {
+    location.replace(PLAY_URL);
+  } else if (/iphone|ipad|ipod/i.test(ua) && APP_STORE_URL) {
+    location.replace(APP_STORE_URL);
+  }
+</script>
 </head>
 <body>
 <main>
@@ -56,20 +65,12 @@
   <div class="tagline">NUMBER PUZZLE</div>
 
   <p class="pitch">Combine numbers with the four operators to hit the target.
-  One hundred handcrafted levels, a fresh daily puzzle, and just the right
-  amount of brain-burn.</p>
+  Handcrafted levels, a fresh daily puzzle, and just the right amount of
+  brain-burn.</p>
 
-  <div class="ops" aria-hidden="true">
-    <div class="op" style="background:linear-gradient(#58b368,#3f9750);">+</div>
-    <div class="op" style="background:linear-gradient(#e4635f,#c04440);">−</div>
-    <div class="op" style="background:linear-gradient(#58a8e8,#3a7fc0);">×</div>
-    <div class="op" style="background:linear-gradient(#b07be0,#8c56bd);">÷</div>
-  </div>
-
-  <div class="soon">OUT NOW</div>
   <div class="stores">
-    <a class="store" href="https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle">Google Play</a>
-    <a class="store" href="https://apps.apple.com/app/id6792473833">App Store</a>
+    <a class="store play" id="play-link" href="https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle">Get it on Google Play</a>
+    <a class="store apple" id="apple-link" href="#" hidden>Download on the App Store</a>
   </div>
 </main>
 
@@ -78,5 +79,10 @@
   <a href="terms.html">Terms of service</a> ·
   <a href="mailto:zipangulu.dev@gmail.com">Contact</a>
 </footer>
+<script>
+  // The App Store badge appears once its URL is configured above.
+  const apple = document.getElementById('apple-link');
+  if (APP_STORE_URL) { apple.href = APP_STORE_URL; apple.hidden = false; }
+</script>
 </body>
 </html>
