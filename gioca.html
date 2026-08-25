@@ -3,8 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Operandi — Gioca</title>
+<title>Operandi — Number Puzzle</title>
 <meta name="description" content="Play Operandi, the cozy math puzzle game: combine numbers with +, −, × and ÷ to hit the target. Free on Google Play and the App Store.">
+<link rel="canonical" href="https://zipanguludev.github.io/numberpuzzle-landing/gioca.html">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d1b2e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Operandi">
+<meta property="og:title" content="Operandi — Number Puzzle">
+<meta property="og:description" content="Can you beat today's daily puzzle? Combine numbers with +, −, × and ÷ to hit the target. Free on Google Play and the App Store.">
+<meta property="og:url" content="https://zipanguludev.github.io/numberpuzzle-landing/gioca.html">
+<meta property="og:image" content="https://zipanguludev.github.io/numberpuzzle-landing/assets/og-image.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Operandi — Number Puzzle">
+<meta name="twitter:description" content="Can you beat today's daily puzzle? Combine numbers with +, −, × and ÷ to hit the target.">
+<meta name="twitter:image" content="https://zipanguludev.github.io/numberpuzzle-landing/assets/og-image.jpg">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -27,14 +43,17 @@
              text-shadow: 0 2px 0 #8a5f13, 0 6px 14px rgba(0,0,0,.6); }
   .pitch { margin-top: 26px; max-width: 460px; line-height: 1.65; color: #b9c7e2;
            font-size: 16px; }
-  .stores { margin-top: 34px; display: flex; gap: 12px; justify-content: center;
-            flex-wrap: wrap; }
-  .store { padding: 14px 26px; border-radius: 14px; font-size: 15px;
-           font-weight: 800; text-decoration: none; color: #fff;
-           box-shadow: 0 6px 16px rgba(0,0,0,.45);
-           border-bottom: 5px solid rgba(0,0,0,.35); }
-  .store.play { background: linear-gradient(#58b368, #3f9750); }
-  .store.apple { background: linear-gradient(#58a8e8, #3a7fc0); }
+  .stores { margin-top: 30px; display: flex; gap: 4px; justify-content: center;
+            align-items: center; flex-wrap: wrap; }
+  .badge { display: block; }
+  .badge img { display: block; }
+  /* Il badge Google Play ha il suo margine trasparente incorporato:
+     si compensa con l'altezza maggiore, così i due badge si equivalgono. */
+  .badge.apple img { height: 54px; margin: 13px; }
+  .badge.play img { height: 80px; }
+  .more { margin-top: 26px; font-size: 14px; }
+  .more a { color: #b9c7e2; text-decoration: underline; text-underline-offset: 3px; }
+  .more a:hover { color: #fff; }
   footer { padding: 26px 16px 34px; font-size: 13px; color: #8fa6c9; }
   footer a { color: #b9c7e2; text-decoration: underline; text-underline-offset: 3px; }
   footer a:hover { color: #fff; }
@@ -42,14 +61,17 @@
 <script>
   // Landed from a shared daily result: hand the phone straight to its
   // store. Desktops and unknown platforms stay on the page with both
-  // badges.
+  // badges. Modern iPads report as Macintosh, hence the touch check.
   const PLAY_URL =
-    'https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle';
+    'https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle'
+    + '&referrer=utm_source%3Dshare%26utm_medium%3Dsocial';
   const APP_STORE_URL = 'https://apps.apple.com/app/id6792473833';
   const ua = navigator.userAgent;
+  const isIos = /iphone|ipad|ipod/i.test(ua) ||
+    (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
   if (/android/i.test(ua)) {
     location.replace(PLAY_URL);
-  } else if (/iphone|ipad|ipod/i.test(ua) && APP_STORE_URL) {
+  } else if (isIos) {
     location.replace(APP_STORE_URL);
   }
 </script>
@@ -65,24 +87,25 @@
   <div class="tagline">NUMBER PUZZLE</div>
 
   <p class="pitch">Combine numbers with the four operators to hit the target.
-  Handcrafted levels, a fresh daily puzzle, and just the right amount of
+  260 handcrafted levels, a fresh daily puzzle, and just the right amount of
   brain-burn.</p>
 
   <div class="stores">
-    <a class="store play" id="play-link" href="https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle">Get it on Google Play</a>
-    <a class="store apple" id="apple-link" href="#" hidden>Download on the App Store</a>
+    <a class="badge play" href="https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle&referrer=utm_source%3Dshare%26utm_medium%3Dsocial">
+      <img src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+    <a class="badge apple" href="https://apps.apple.com/app/id6792473833">
+      <img src="assets/app-store-badge.svg" alt="Download on the App Store"></a>
   </div>
+
+  <p class="more"><a href="index.html">See what's inside the game →</a></p>
 </main>
 
 <footer>
   <a href="privacy-policy.html">Privacy policy</a> ·
   <a href="terms.html">Terms of service</a> ·
   <a href="mailto:zipangulu.dev@gmail.com">Contact</a>
+  <div style="margin-top:10px;">Google Play and the Google Play logo are trademarks of Google LLC.
+  Apple and the Apple logo are trademarks of Apple Inc.</div>
 </footer>
-<script>
-  // The App Store badge appears once its URL is configured above.
-  const apple = document.getElementById('apple-link');
-  if (APP_STORE_URL) { apple.href = APP_STORE_URL; apple.hidden = false; }
-</script>
 </body>
 </html>

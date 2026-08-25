@@ -4,7 +4,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Operandi — Number Puzzle</title>
-<meta name="description" content="Operandi is a cozy math puzzle game: combine numbers with +, −, × and ÷ to hit the target. Free on Google Play and the App Store.">
+<meta name="description" content="Operandi is a cozy math puzzle game: combine numbers with +, −, × and ÷ to hit the target. 260 handcrafted levels, 14 worlds, a fresh daily puzzle. Free on Google Play and the App Store.">
+<link rel="canonical" href="https://zipanguludev.github.io/numberpuzzle-landing/">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0d1b2e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Operandi">
+<meta property="og:title" content="Operandi — Number Puzzle">
+<meta property="og:description" content="Combine numbers with +, −, × and ÷ to hit the target. 260 handcrafted levels, 14 worlds, a fresh daily puzzle. Free on Google Play and the App Store.">
+<meta property="og:url" content="https://zipanguludev.github.io/numberpuzzle-landing/">
+<meta property="og:image" content="https://zipanguludev.github.io/numberpuzzle-landing/assets/og-image.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Operandi — Number Puzzle">
+<meta name="twitter:description" content="Combine numbers with +, −, × and ÷ to hit the target. 260 handcrafted levels, 14 worlds, a fresh daily puzzle.">
+<meta name="twitter:image" content="https://zipanguludev.github.io/numberpuzzle-landing/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Operandi — Number Puzzle",
+  "genre": "Puzzle",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "ANDROID, IOS",
+  "url": "https://zipanguludev.github.io/numberpuzzle-landing/",
+  "image": "https://zipanguludev.github.io/numberpuzzle-landing/assets/og-image.jpg",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -14,8 +43,9 @@
     display: flex; flex-direction: column; align-items: center;
     text-align: center; overflow-x: hidden;
   }
-  main { flex: 1; display: flex; flex-direction: column; align-items: center;
-         justify-content: center; padding: 48px 24px; position: relative; }
+  .hero { display: flex; flex-direction: column; align-items: center;
+          justify-content: center; padding: 72px 24px 56px; position: relative;
+          width: 100%; }
   .glyph { position: absolute; font-weight: 800; opacity: .85;
            animation: float 4s ease-in-out infinite alternate; user-select: none; }
   @keyframes float { from { transform: translateY(-6px) rotate(-8deg); }
@@ -32,21 +62,46 @@
         align-items: center; justify-content: center; font-size: 27px;
         font-weight: 800; color: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.45);
         border-bottom: 5px solid rgba(0,0,0,.35); }
-  .soon { margin-top: 38px; font-size: 13px; font-weight: 800; letter-spacing: 3px;
-          color: #8fa6c9; }
-  .stores { margin-top: 14px; display: flex; gap: 12px; justify-content: center;
-            flex-wrap: wrap; }
-  .store { padding: 12px 22px; border-radius: 14px; border: 1.5px solid #31456b;
-           color: #b9c7e2; font-size: 14px; font-weight: 700; background: #12203a;
-           text-decoration: none; }
-  .store:hover { color: #fff; border-color: #4a6390; }
+  .out-now { margin-top: 38px; font-size: 13px; font-weight: 800; letter-spacing: 3px;
+             color: #8fa6c9; }
+  .stores { margin-top: 16px; display: flex; gap: 4px; justify-content: center;
+            align-items: center; flex-wrap: wrap; }
+  .badge { display: block; }
+  .badge img { display: block; }
+  /* Il badge Google Play ha il suo margine trasparente incorporato:
+     si compensa con l'altezza maggiore, così i due badge si equivalgono. */
+  .badge.apple img { height: 54px; margin: 13px; }
+  .badge.play img { height: 80px; }
+
+  section { width: 100%; max-width: 1060px; padding: 40px 24px; }
+  h2 { font-size: clamp(24px, 5vw, 34px); color: #fff; letter-spacing: 1px;
+       text-shadow: 0 3px 0 rgba(0,0,0,.4); }
+  .shots { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap;
+           margin-top: 34px; }
+  .shot { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+  .shot img { width: min(272px, 78vw); height: auto; border-radius: 30px;
+              border: 4px solid #223454; box-shadow: 0 18px 44px rgba(0,0,0,.55); }
+  .shot figcaption { font-size: 14px; color: #8fa6c9; font-weight: 600; }
+
+  .features { display: grid; gap: 18px; margin-top: 34px;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .feature { background: #12203a; border: 1.5px solid #223454; border-radius: 18px;
+             padding: 24px 22px; text-align: left;
+             box-shadow: 0 8px 22px rgba(0,0,0,.35); }
+  .feature .icon { font-size: 30px; line-height: 1; }
+  .feature h3 { margin-top: 12px; font-size: 17px; color: #fff; letter-spacing: .4px; }
+  .feature p { margin-top: 8px; font-size: 14.5px; line-height: 1.6; color: #b9c7e2; }
+
+  .cta { padding-bottom: 64px; }
+  .cta p { margin-top: 12px; color: #b9c7e2; font-size: 15.5px; line-height: 1.6; }
+
   footer { padding: 26px 16px 34px; font-size: 13px; color: #8fa6c9; }
   footer a { color: #b9c7e2; text-decoration: underline; text-underline-offset: 3px; }
   footer a:hover { color: #fff; }
 </style>
 </head>
 <body>
-<main>
+<header class="hero">
   <span class="glyph" style="left:8%;  top:22%; color:#ffc24a; font-size:30px;">+</span>
   <span class="glyph" style="left:14%; bottom:24%; color:#e4635f; font-size:24px; animation-delay:-1.2s;">−</span>
   <span class="glyph" style="right:10%; top:26%; color:#58a8e8; font-size:26px; animation-delay:-2.1s;">×</span>
@@ -56,8 +111,8 @@
   <div class="tagline">NUMBER PUZZLE</div>
 
   <p class="pitch">Combine numbers with the four operators to hit the target.
-  One hundred handcrafted levels, a fresh daily puzzle, and just the right
-  amount of brain-burn.</p>
+  260 handcrafted levels across 14 worlds, a fresh daily puzzle, and just the
+  right amount of brain-burn.</p>
 
   <div class="ops" aria-hidden="true">
     <div class="op" style="background:linear-gradient(#58b368,#3f9750);">+</div>
@@ -66,17 +121,98 @@
     <div class="op" style="background:linear-gradient(#b07be0,#8c56bd);">÷</div>
   </div>
 
-  <div class="soon">OUT NOW</div>
+  <div class="out-now">OUT NOW · FREE</div>
   <div class="stores">
-    <a class="store" href="https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle">Google Play</a>
-    <a class="store" href="https://apps.apple.com/app/id6792473833">App Store</a>
+    <a class="badge play" href="https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle&referrer=utm_source%3Dlanding%26utm_medium%3Dweb">
+      <img src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+    <a class="badge apple" href="https://apps.apple.com/app/id6792473833">
+      <img src="assets/app-store-badge.svg" alt="Download on the App Store"></a>
   </div>
-</main>
+</header>
+
+<section aria-label="Screenshots">
+  <div class="shots">
+    <figure class="shot">
+      <img src="assets/screen-home.jpg" alt="Operandi home screen in the jungle world" width="600" height="1304" loading="lazy">
+      <figcaption>Every world has its own light</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/screen-glue.jpg" alt="A level played with the glue operator: 3 and 7 become 37" width="600" height="1304" loading="lazy">
+      <figcaption>The fifth operator: glue</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="assets/screen-map.jpg" alt="The chapter map with stars and progress" width="600" height="1304" loading="lazy">
+      <figcaption>14 chapters, one map</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section aria-label="Features">
+  <h2>What's inside</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">🧩</div>
+      <h3>260 handcrafted levels</h3>
+      <p>No random grids: every puzzle is designed, tested and tuned by hand,
+      and every chapter brings a new mechanic — gold tiles, bombs, ice,
+      dominoes, a phoenix that grants one last chance.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🔗</div>
+      <h3>The fifth operator</h3>
+      <p>Plus, minus, times, divide… and glue. Stick two numbers together and
+      they become one: 3 and 7 make 37. Only a few uses per level, but every
+      merge can turn the game around.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🌊</div>
+      <h3>Levels that fight back</h3>
+      <p>Tides that raise every number, a thief on a countdown, blackouts,
+      closing walls, earthquakes and storms: the deeper you go, the more the
+      board comes alive.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🗺️</div>
+      <h3>14 worlds to cross</h3>
+      <p>From the jungle to the abyss, through a clockwork forge and the polar
+      night, up to the top of the tower — where a rival plays against you,
+      calling his blows two moves ahead.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">📅</div>
+      <h3>The daily challenge</h3>
+      <p>A new puzzle every day, the same grid for everyone. Win it to grow
+      your streak, then share your best line with friends and see who finds
+      the cleaner path.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🏅</div>
+      <h3>The Book of Seals</h3>
+      <p>Twenty seals to mint, one for every feat: stars collected, wins
+      within par, daily streaks. Each one raises your rank in the Order, from
+      Addend all the way to Infinity.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta" aria-label="Download">
+  <h2>Hit your first target</h2>
+  <p>Free to play, works offline, no account and no sign-up.<br>
+  Five minutes in a queue or a whole evening on the couch — you set the pace.</p>
+  <div class="stores">
+    <a class="badge play" href="https://play.google.com/store/apps/details?id=com.zipangulu.numberpuzzle&referrer=utm_source%3Dlanding%26utm_medium%3Dweb">
+      <img src="assets/google-play-badge.png" alt="Get it on Google Play"></a>
+    <a class="badge apple" href="https://apps.apple.com/app/id6792473833">
+      <img src="assets/app-store-badge.svg" alt="Download on the App Store"></a>
+  </div>
+</section>
 
 <footer>
   <a href="privacy-policy.html">Privacy policy</a> ·
   <a href="terms.html">Terms of service</a> ·
   <a href="mailto:zipangulu.dev@gmail.com">Contact</a>
+  <div style="margin-top:10px;">Google Play and the Google Play logo are trademarks of Google LLC.
+  Apple and the Apple logo are trademarks of Apple Inc.</div>
 </footer>
 </body>
 </html>
